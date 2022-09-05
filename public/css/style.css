@@ -1,0 +1,11 @@
+.waiting {
+    color: orange;
+}
+
+.refused {
+    color: red;
+}
+
+.validated {
+    color: rgb(17, 150, 17);
+}

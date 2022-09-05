@@ -1,5 +1,7 @@
+require('./models/connection')
 var createError = require('http-errors');
 var express = require('express');
+
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
@@ -8,6 +10,16 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 
 var app = express();
+
+app.locals.dateFormat = function(date) {
+  newDate = new Date(date)
+  let dd = newDate.getDate();
+  let mm = newDate.getMonth();
+  mm += 1
+  let yy = newDate.getFullYear();
+  return dd + "/" + mm + "/" + yy;
+};
+
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
